@@ -13,7 +13,7 @@ public interface IUserService {
 
     List<User> getAllUsers();
 
-    User findByFirstnameContains(String firstname);
+    List<User> findByFirstnameIgnoreCaseContains(String firstname);
 
     void save(User user);
 

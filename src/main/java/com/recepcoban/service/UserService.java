@@ -1,6 +1,8 @@
 package com.recepcoban.service;
 
+import com.recepcoban.entity.Address;
 import com.recepcoban.entity.User;
+import com.recepcoban.repository.IAddressRepository;
 import com.recepcoban.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,10 +19,16 @@ public class UserService implements IUserService {
 
     @Autowired
     private IUserRepository userRepository;
+    
+    @Autowired
+    private IAddressRepository addressRepository;
 
     @Override
     public User getUser(Long id) {
-        return userRepository.findOne(id);
+    	User user = userRepository.findOne(id);
+    	List<Address> addresses = addressRepository.findByUserId(id);
+    	user.setAddresses(addresses);
+        return user;
     }
 
     @Override
@@ -30,8 +38,9 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User findByFirstnameContains(String firstname) {
-        return userRepository.findByFirstnameContains(firstname);
+    public List<User> findByFirstnameIgnoreCaseContains(String firstname) {
+    	List<User> users = userRepository.findByFirstnameIgnoreCaseContains(firstname);
+        return users;
     }
 
     @Override

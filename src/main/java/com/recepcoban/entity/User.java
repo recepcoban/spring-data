@@ -1,61 +1,62 @@
 package com.recepcoban.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * Created by Recep Çoban on 2/26/2017.
  */
 @Entity(name = "demo_user")
-public class User {
+public class User extends AbstractModel {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String firstname;
-    private String lastname;
-    private String role;
+	private String firstname;
+	private String lastname;
+	private String role;
+	
+	@OneToMany
+	private List<Address> addresses;
+	
+	public User() {
+	}
 
-    public User() {
-    }
+	public User(String firstname, String lastname, String role) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.role = role;
+	}
 
-    public User(Long id, String firstname, String lastname, String role) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.role = role;
-    }
+	public String getFirstname() {
+		return firstname;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getLastname() {
+		return lastname;
+	}
 
-    public String getFirstname() {
-        return firstname;
-    }
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+	public String getRole() {
+		return role;
+	}
 
-    public String getLastname() {
-        return lastname;
-    }
+	public void setRole(String role) {
+		this.role = role;
+	}
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+	public List<Address> getAddresses() {
+		return addresses;
+	}
 
-    public String getRole() {
-        return role;
-    }
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
 
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

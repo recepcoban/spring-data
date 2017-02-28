@@ -1,10 +1,9 @@
 package com.recepcoban.controller;
 
 import com.recepcoban.entity.User;
-import com.recepcoban.service.UserService;
+import com.recepcoban.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class UserController {
 
     @Autowired
     @Qualifier(value = "userService")
-    private UserService userService;
+    private IUserService userService;
 
     @GetMapping("/")
     public String index() {
@@ -36,8 +35,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/users/{firstname}")
-    public User findByFirstnameContains(@PathVariable String firstname) {
-        return userService.findByFirstnameContains(firstname);
+    public List<User> findByFirstnameIgnoreCaseContains(@PathVariable String firstname) {
+        return userService.findByFirstnameIgnoreCaseContains(firstname);
     }
 
     @PostMapping(value = "/user")
