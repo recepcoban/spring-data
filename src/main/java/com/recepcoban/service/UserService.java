@@ -17,11 +17,13 @@ import java.util.List;
 @Qualifier(value = "userService")
 public class UserService implements IUserService {
 
-    @Autowired
-    private IUserRepository userRepository;
-    
-    @Autowired
-    private IAddressRepository addressRepository;
+    private final IUserRepository userRepository;
+    private final IAddressRepository addressRepository;
+
+    public UserService(IUserRepository userRepository, IAddressRepository addressRepository) {
+        this.userRepository = userRepository;
+        this.addressRepository = addressRepository;
+    }
 
     @Override
     public User getUser(Long id) {

@@ -1,17 +1,12 @@
 package com.recepcoban.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.recepcoban.entity.Address;
 import com.recepcoban.service.IAddressService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Recep Çoban on 2/26/2017.
@@ -19,10 +14,12 @@ import com.recepcoban.service.IAddressService;
 @RestController
 public class AddressController {
     
-    @Autowired
-    @Qualifier(value = "addressService")
-    private IAddressService addressService;
-    
+    private final IAddressService addressService;
+
+    public AddressController(@Qualifier(value = "addressService") IAddressService addressService) {
+        this.addressService = addressService;
+    }
+
     @GetMapping(value = "/address/{id}")
     public Address getAddress(@PathVariable Long id){
     	return addressService.getAddress(id);

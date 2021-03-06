@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Recep Çoban on 2/26/2017.
@@ -11,8 +12,13 @@ import javax.persistence.OneToMany;
 @Entity(name = "demo_user")
 public class User extends AbstractModel {
 
+	@NotNull(message = "firstname is required field")
 	private String firstname;
+
+	@NotNull(message = "firstname is required field")
 	private String lastname;
+
+	@NotNull(message = "firstname is required field")
 	private String role;
 	
 	@OneToMany
@@ -57,6 +63,16 @@ public class User extends AbstractModel {
 
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"firstname='" + firstname + '\'' +
+				", lastname='" + lastname + '\'' +
+				", role='" + role + '\'' +
+				", addresses=" + addresses +
+				'}';
 	}
 
 }

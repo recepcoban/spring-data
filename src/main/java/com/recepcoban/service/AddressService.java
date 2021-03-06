@@ -17,12 +17,14 @@ import com.recepcoban.repository.IUserRepository;
 @Qualifier(value = "addressService")
 public class AddressService implements IAddressService {
 
-	@Autowired
-	private IAddressRepository addressRepository;
-	
-	@Autowired
-	private IUserRepository userRepository;
-	
+	private final IAddressRepository addressRepository;
+	private final IUserRepository userRepository;
+
+	public AddressService(IAddressRepository addressRepository, IUserRepository userRepository) {
+		this.addressRepository = addressRepository;
+		this.userRepository = userRepository;
+	}
+
 	@Override
 	public Address getAddress(Long id) {
 		return addressRepository.findOne(id);

@@ -55,4 +55,14 @@ public class Address extends AbstractModel {
 		this.userId = userId;
 	}
 
+	@Override
+	public String toString() {
+		return "Address{" +
+				"country='" + country + '\'' +
+				", city='" + city + '\'' +
+				", zipCode='" + zipCode + '\'' +
+				", userId=" + userId +
+				'}';
+	}
+
 }

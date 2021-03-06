@@ -14,9 +14,11 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    @Autowired
-    @Qualifier(value = "userService")
-    private IUserService userService;
+    private final IUserService userService;
+
+    public UserController(@Qualifier(value = "userService") IUserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/")
     public String index() {
