@@ -32,8 +32,7 @@ public class AddressService implements IAddressService {
 
 	@Override
 	public List<Address> getAllAddresses() {
-		List<Address> addresses = (List<Address>) addressRepository.findAll();
-		return addresses;
+		return (List<Address>) addressRepository.findAll();
 	}
 
 	@Override

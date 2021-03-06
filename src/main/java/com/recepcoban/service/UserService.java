@@ -35,14 +35,12 @@ public class UserService implements IUserService {
 
     @Override
     public List<User> getAllUsers() {
-        List<User> users = (List<User>) userRepository.findAll();
-        return users;
+        return (List<User>) userRepository.findAll();
     }
 
     @Override
     public List<User> findByFirstnameIgnoreCaseContains(String firstname) {
-    	List<User> users = userRepository.findByFirstnameIgnoreCaseContains(firstname);
-        return users;
+        return userRepository.findByFirstnameIgnoreCaseContains(firstname);
     }
 
     @Override

@@ -27,8 +27,7 @@ public class AddressController {
     
     @GetMapping(value = "/addresses")
     public List<Address> getAllAddresses(){
-    	List<Address> addresses = (List<Address>) addressService.getAllAddresses();
-    	return addresses;
+    	return addressService.getAllAddresses();
     }
     
     @PostMapping(value = "/user/{userId}/address")
