@@ -26,15 +26,20 @@ public class UserService implements IUserService {
 
     @Override
     public User getUser(Long id) {
-    	User user = userRepository.findOne(id);
-    	List<Address> addresses = addressRepository.findByUserId(id);
-    	user.setAddresses(addresses);
+        User user = userRepository.findOne(id);
+        List<Address> addresses = addressRepository.findByUserId(id);
+        user.setAddresses(addresses);
         return user;
     }
 
     @Override
     public List<User> getAllUsers() {
-        return (List<User>) userRepository.findAll();
+        List<User> users = (List<User>) userRepository.findAll();
+        for (User user : users) {
+            List<Address> addresses = addressRepository.findByUserId(user.getId());
+            user.setAddresses(addresses);
+        }
+        return users;
     }
 
     @Override
@@ -43,12 +48,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void save(User user) {
-        if (user.getFirstname().isEmpty() || user.getFirstname() == null) {
-            throw new NullPointerException("Name is required field!");
-        }
-        else {
-            userRepository.save(user);
-        }
+    public User save(User user) {
+        return userRepository.save(user);
     }
 }

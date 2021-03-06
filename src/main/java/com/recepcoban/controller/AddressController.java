@@ -3,6 +3,7 @@ package com.recepcoban.controller;
 import com.recepcoban.entity.Address;
 import com.recepcoban.service.IAddressService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class AddressController {
     }
     
     @PostMapping(value = "/user/{userId}/address")
-    public void saveAddress(@RequestBody Address address, @PathVariable Long userId){
-    	addressService.save(address, userId);
+    public Address saveAddress(@Validated @RequestBody Address address, @PathVariable Long userId){
+    	return addressService.save(address, userId);
     }
 }

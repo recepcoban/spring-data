@@ -1,6 +1,9 @@
 package com.recepcoban.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Recep Çoban on 2/28/2017.
@@ -8,9 +11,18 @@ import javax.persistence.Entity;
 @Entity(name = "demo_address")
 public class Address extends AbstractModel {
 
+	@NotNull
+	@NotEmpty(message = "country is required field")
 	private String country;
+
+	@NotNull
+	@NotEmpty(message = "city is required field")
 	private String city;
+
+	@NotNull
+	@NotEmpty(message = "zipCode is required field")
 	private String zipCode;
+
 	private Long userId;
 
 	public Address() {

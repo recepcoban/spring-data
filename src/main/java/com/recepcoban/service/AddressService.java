@@ -40,16 +40,9 @@ public class AddressService implements IAddressService {
 	}
 	
 	@Override
-	public void save(Address address, Long userId) {
-		if (address.getZipCode().isEmpty() || address.getZipCode() == null) {
-            throw new NullPointerException("Zip Code is required field!");
-        } else if (userId == null) {
-        	throw new NullPointerException("User ID is required field!");
-        }
-        else {
-        	address.setUserId(userId);
-        	addressRepository.save(address);
-        }
+	public Address save(Address address, Long userId) {
+		address.setUserId(userId);
+		return addressRepository.save(address);
 	}
 	
 }

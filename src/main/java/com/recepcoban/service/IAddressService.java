@@ -12,8 +12,8 @@ public interface IAddressService {
 	Address getAddress(Long id);
 	
 	List<Address> getAllAddresses();
-	
-    void save(Address address, Long userId);
+
+    Address save(Address address, Long userId);
 
     Address findByUserId(Long userId);
 }

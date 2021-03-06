@@ -3,6 +3,7 @@ package com.recepcoban.controller;
 import com.recepcoban.entity.User;
 import com.recepcoban.service.IUserService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,8 +42,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/user")
-    public void save(@RequestBody User user) {
-        userService.save(user);
+    public User save(@Validated @RequestBody User user) {
+        return userService.save(user);
     }
 
 }

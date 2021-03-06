@@ -15,6 +15,6 @@ public interface IUserService {
 
     List<User> findByFirstnameIgnoreCaseContains(String firstname);
 
-    void save(User user);
+    User save(User user);
 
 }
