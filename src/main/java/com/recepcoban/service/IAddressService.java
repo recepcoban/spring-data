@@ -1,8 +1,8 @@
 package com.recepcoban.service;
 
-import java.util.List;
-
 import com.recepcoban.entity.Address;
+
+import java.util.List;
 
 /**
  * Created by Recep Çoban on 2/28/2017.

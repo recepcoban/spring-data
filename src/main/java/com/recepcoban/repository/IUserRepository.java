@@ -1,11 +1,10 @@
 package com.recepcoban.repository;
 
 import com.recepcoban.entity.User;
-
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 /**
  * Created by Recep Çoban on 2/26/2017.

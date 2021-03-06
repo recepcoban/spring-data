@@ -1,14 +1,12 @@
 package com.recepcoban.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
-
 import com.recepcoban.entity.Address;
 import com.recepcoban.repository.IAddressRepository;
 import com.recepcoban.repository.IUserRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by Recep Çoban on 2/28/2017.

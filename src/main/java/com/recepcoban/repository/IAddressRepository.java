@@ -1,10 +1,9 @@
 package com.recepcoban.repository;
 
-import java.util.List;
-
+import com.recepcoban.entity.Address;
 import org.springframework.data.repository.CrudRepository;
 
-import com.recepcoban.entity.Address;
+import java.util.List;
 
 /**
  * Created by Recep Çoban on 2/28/2017.

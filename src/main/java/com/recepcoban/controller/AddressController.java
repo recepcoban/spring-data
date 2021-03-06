@@ -2,7 +2,6 @@ package com.recepcoban.controller;
 
 import com.recepcoban.entity.Address;
 import com.recepcoban.service.IAddressService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
